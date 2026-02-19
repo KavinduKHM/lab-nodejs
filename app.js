@@ -26,3 +26,7 @@ http.createServer(function (req, res) {
 }).listen(8080);
 
 console.log("Server running at http://localhost:8080");
+fs.readFile('file.txt', 'utf8', function (err, data) {
+  if (err) throw err;
+  console.log(data);
+});
