@@ -1,14 +1,19 @@
-const https = require('https');
+const myPromise = new Promise((resolve, reject) => {
+  let condition = true;
 
-https.get('https://jsonplaceholder.typicode.com/posts/1', (resp) => {
-  let data = '';
+  if (condition) {
+    resolve('Success!');
+  } else {
+    reject('Failure!');
+  }
+});
 
-  resp.on('data', (chunk) => {
-    data += chunk;
-  });
-
-  resp.on('end', () => {
-    console.log(JSON.parse(data));
+myPromise
+  .then((result) => {
+    console.log(result);
+  })
+  .catch((error) => {
+    console.log(error);
   });
 
 }).on('error', (err) => {
