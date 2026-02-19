@@ -1,19 +1,18 @@
 const myPromise = new Promise((resolve, reject) => {
-  let condition = true;
-
-  if (condition) {
-    resolve('Success!');
-  } else {
-    reject('Failure!');
-  }
+  resolve("Async Success!");
 });
 
-myPromise
-  .then((result) => {
+async function myFunction() {
+  try {
+    const result = await myPromise;
     console.log(result);
-  })
-  .catch((error) => {
+  } catch (error) {
     console.log(error);
+  }
+}
+
+myFunction();
+
   });
 
 }).on('error', (err) => {
